@@ -1,0 +1,88 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url(/assets/images/img5.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Times New Roman';
+    height: 100%;
+    min-height: 768px;
+    
+}
+h1{
+    font-size: 40px;
+    color: white;
+}
+small{
+    font-size: 19px;
+    color: white
+}
+.glyphicon-send{
+    font-size: 60px;
+    color: lightblue;
+    float: right;
+    margin-top: 30px;
+}
+.label{
+    font-size: 19px;
+    color: white;
+    font-weight: normal;
+}
+.form-control{
+    background: transparent;
+    color: white;
+    border-radius: 0px;
+    border: 0px;
+    font-size: 21px;
+    border-bottom: 1px solid white;
+    margin-bottom: 15px;
+}
+.btn-danger{
+    font-size: 19px;
+    width: 545px;
+}
+p{
+    font-size: 18px;
+    color: white;
+}
+.glyphicon-map-marker{
+    font-size: 29px;
+    color: white;
+    background-color: rgba(19, 179, 231, 0.4);
+    padding: 8px;
+    margin-left: 35px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.glyphicon-picture{
+    font-size: 29px;
+    color: white;
+    background-color: rgba(19, 179, 231, 0.4);
+    padding: 8px;
+    margin-left: 35px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.glyphicon-envelope{
+    font-size: 29px;
+    color: white;
+    background-color: rgba(19, 179, 231, 0.4);
+    padding: 8px;
+    margin-left: 35px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.glyphicon-earphone{
+    font-size: 29px;
+    color: white;
+    background-color: rgba(19, 179, 231, 0.4);
+    padding: 8px;
+    margin-left: 35px;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.modal.show{
+    display: block;
+}

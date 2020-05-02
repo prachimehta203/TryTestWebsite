@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="row">
+                <div class="col-md-6">
+                    <h1 class="text-left">Contact us</h1>
+                    <small>Fill the form below to contact us</small>
+                </div>
+                <div class="col-md-6">
+                    <span class="glyphicon glyphicon-send"></span>
+                </div>
+                </div>
+                <hr><br/>
+                <form [formGroup]="addForm1"  #feedback="ngForm"  (ngSubmit)="onSubmit1(); feedback.reset()"  >
+                <label class="label control-label" for="name">Name</label><br/><br/>
+                <input type="text"  formControlName="name"  placeholder="Name" name="name" class="form-control" >
+
+                <label  class="label control-label" for="email">Email</label><br/><br/>
+                <input type="email"  formControlName="email" placeholder="EmailId" name="email" class="form-control" >
+
+                <label class="label control-label" for="phone">Phone No</label><br/><br/>
+                <input type="tel"  formControlName="phone" placeholder="Phone No" name="phone" class="form-control">
+
+                <label class="label control-label" for="message">Message</label><br/><br/>
+                <textarea type="text" formControlName="message" placeholder="Enter your Feedback"  name="message" class="form-control" ></textarea>
+                <button  (click)="showModal=true" ><div class="btn btn-danger">Submit Response</div></button><br/><br/>
+                </form>
+                <p class="text-center">...or find us here</p><br/><br/>
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="glyphicon glyphicon-map-marker"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="glyphicon glyphicon-earphone"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="glyphicon glyphicon-picture"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <div class="modal" id="myModal" [ngClass]="{'show':showModal}">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Feedback Form </h4>
+                    <button type="button" class="close" (click)="showModal=false" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    Your response is been recorded successfully!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" (click)="showModal=false"  data-dismiss="modal">close</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
