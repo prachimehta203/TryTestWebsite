@@ -14,6 +14,11 @@ import { EditComponent } from './signin/edit/edit.component';
 import { FormsModule} from '@angular/forms';
 import { ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ServicesService } from './services/services.service';
+import { QuizServiceService } from './services/quiz-service.service';
+import { AuthGuard } from './auth/auth.guard';
+import { ResultComponent } from './result/result.component';
+import { TrytestComponent } from './trytest/trytest.component';
 
 
 
@@ -27,7 +32,10 @@ import { HttpClientModule } from '@angular/common/http';
     SigninComponent,
     HomeComponent,
     ViewComponent,
-    EditComponent
+    EditComponent,
+    ResultComponent,
+    TrytestComponent,
+    
    
   
     
@@ -40,7 +48,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [ServicesService,QuizServiceService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

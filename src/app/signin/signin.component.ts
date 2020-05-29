@@ -10,6 +10,8 @@ import {Router} from '@angular/router'
 })
 export class SigninComponent implements OnInit {
 
+  
+
   constructor(private formBuilder:FormBuilder,
     private apiService: ServicesService,
     private router : Router) { }
@@ -19,13 +21,19 @@ export class SigninComponent implements OnInit {
   ngOnInit() {
     this.addForm = this.formBuilder.group({
       id: [],
-      userName: ['', Validators.required],
-      password: ['', Validators.required],
+      userName: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')]],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      age: ['', Validators.required]
+      email: ['',[Validators.required,
+                  Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+                ]
+             ]
     });
   }
+
+  
+  
 
   onSubmit(){
     console.log(this.addForm.value);

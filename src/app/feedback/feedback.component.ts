@@ -32,7 +32,7 @@ export class FeedbackComponent implements OnInit {
 
   onSubmit1(){
     console.log(this.addForm1.value);
-    this.apiService.createUser1(this.addForm1.value)
+    this.apiService. (this.addForm1.value)
     .subscribe( data => {
       
     });

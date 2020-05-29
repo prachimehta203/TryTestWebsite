@@ -1,0 +1,26 @@
+.button{
+
+  background-color: rgb(31, 62, 201);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 1500px;
+}
+h2{
+  font-family: cursive;
+  text-align: center;
+  margin-right: 320px;
+}
+.card{
+  margin-right: 330px; 
+}
+.progress{
+  margin-left: -200px;
+}

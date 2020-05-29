@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { QuizServiceService } from './services/quiz-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project-wtl';
+  constructor(private quizService:QuizServiceService){}
+  onSubmit(){
+    if(this.quizService.User==" "){
+      alert("Please login to attempt quiz!");
+    }
+  }
 }

@@ -1,27 +1,44 @@
 <div class="row">
     <div class="col-md-6">
-        <h2 style="margin: auto">Please Login</h2>
-        <h3 *ngIf='message'>{{message}}</h3>
-        <form [formGroup]='loginForm' (ngSubmit)="onSubmit()">
+        <h2 class="text-center" style="font-style: normal;font-size: 1cm;margin-top: 100px;">Login Form</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit(Name.value,Email.value)">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" class="form-control" formControlName="username" id="username" autocomplete="off">
-                <div class="error"
+                <input type="text" class="form-control" formControlName="username" id="username" autocomplete="off" name="Name" #Name ngModel>
+                <div class="text-danger"
                  *ngIf="loginForm.controls['username'].hasError('required')
                  && loginForm.controls['username'].touched">Please Enter User Name!</div>
+                 <div class="text-danger"
+                 *ngIf="loginForm.controls['username'].hasError('minlength')  && loginForm.controls['username'].touched">Username too short !</div>
             </div>
             <div class="form-group">
                 <label for="pwd">Password:</label>
                 <input type="password" class="form-control"
                  formControlName="password" id="pwd" autocomplete="off">
-                 <div class="error"
+                 <div class="text-danger"
                   *ngIf="loginForm.controls['password'].hasError('required')
                    && loginForm.controls['password'].touched">Please Enter Password!</div>
+                   <div class="text-danger"
+                  *ngIf="loginForm.controls['password'].hasError('pattern')
+                   && loginForm.controls['password'].touched">Password should contain smallCase,upperCase,digit,specialCharacter!!</div>
+                   
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email"  class="form-control" formControlName="email"  id="email" name="Email" #Email ngModel>
+                <div class="text-danger"
+                *ngIf="loginForm.controls['email'].hasError('required')
+                && loginForm.controls['email'].touched">Please Enter Email!</div>
+                <div class="text-danger"
+                *ngIf="loginForm.controls['email'].hasError('pattern')
+                && loginForm.controls['email'].touched">Email Invalid!</div>
+               
+          
             </div>
 
             <button class="btn btn-success" [disabled]="loginForm.invalid">Login</button>
             <div *ngIf="invalidLogin" class="error">
-                <div class="txt-danger">Invalid user or password. Please try again</div>
+                <div class="text-danger">Invalid user or password or email. Please try again</div>
             </div>
         </form>
     </div>

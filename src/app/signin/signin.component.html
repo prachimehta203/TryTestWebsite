@@ -1,32 +1,71 @@
-<div class="col-md-6 user-container">
-    <h2 class="text-center">Add User</h2>
-    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="userName">User Name:</label>
-            <input type="text" formControlName="userName" placeholder="userName" name="userName" class="form-control" id="userName">
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" formControlName="password" placeholder="password" name="password" class="form-control" id="password">
-        </div>
-
-        <div class="form-group">
-            <label for="firstName">First Name:</label>
-            <input type="text" formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
-        </div>
-
-        <div class="form-group">
-            <label for="lastName">Last Name:</label>
-            <input type="text" formControlName="lastName" placeholder="Last Name" name="lastName" class="form-control" id="lastName">
-        </div>
-
-
-        <div class="form-group">
-            <label for="age">Age:</label>
-            <input type="number" formControlName="age" placeholder="Age" name="age" class="form-control" id="age">
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="col-md-6 user-container">
+        <h2 class="text-center" style="font-style: normal;font-size: 2em;margin-top: 50px;">SignIn Form</h2>
+        <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="userName">User Name:</label>
+                <input type="text" formControlName="userName" placeholder="UserName" name="userName" class="form-control" id="userName" >
+                <div class="text-danger"
+                     *ngIf="addForm.controls['userName'].hasError('required')
+                     && addForm.controls['userName'].touched">Please Enter User Name!</div>
+                <div class="text-danger"
+                     *ngIf="addForm.controls['userName'].hasError('minlength')">Username too short !</div>
+                
+            </div>
+    
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" formControlName="password" placeholder="Password" name="password" class="form-control" id="password">
+                <div class="text-danger"
+                *ngIf="addForm.controls['password'].hasError('required')
+                && addForm.controls['password'].touched">Please Enter Password!</div>
+                <div class="text-danger"
+                      *ngIf="addForm.controls['password'].hasError('pattern')
+                       && addForm.controls['password'].touched">Password should contain smallCase,upperCase,digit,specialCharacter!!</div>
+           
+            </div>
+    
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+                <div class="text-danger"
+                *ngIf="addForm.controls['firstName'].hasError('required')
+                && addForm.controls['firstName'].touched">Please Enter First Name!</div>
         
-        <button class="btn btn-success" >Add User</button>
-    </form>
-</div>
+            </div>
+    
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" formControlName="lastName" placeholder="Last Name" name="lastName" class="form-control" id="lastName">
+                <div class="text-danger"
+                *ngIf="addForm.controls['lastName'].hasError('required')
+                && addForm.controls['lastName'].touched">Please Enter Last Name!</div>
+           
+            </div>
+    
+    
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" formControlName="email" placeholder="Email" name="email"  class="form-control" id="email">
+                <div class="text-danger"
+                *ngIf="addForm.controls['email'].hasError('required')
+                && addForm.controls['email'].touched">Please Enter Email!</div>
+                <div class="text-danger"
+                *ngIf="addForm.controls['email'].hasError('pattern')
+                && addForm.controls['email'].touched">Email Invalid!</div>
+          
+            </div>
+            
+            <button class="btn btn-success" [disabled]="addForm.invalid">Signin</button>
+        </form>
+    </div>
+</body>
+</html>
